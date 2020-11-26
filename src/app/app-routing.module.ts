@@ -6,12 +6,18 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
+    redirectTo: 'home'
+  },
+  {
+    path: 'home',
+    pathMatch: 'full',
     component: HomeComponent
   },
   {
     path: 'products',
     pathMatch: 'full',
-    loadChildren: () => import('./products/products.module').then(m => m.ProductsModule)  }
+    loadChildren: () => import('./products/products.module').then(m => m.ProductsModule)
+   }
 ];
 
 @NgModule({
