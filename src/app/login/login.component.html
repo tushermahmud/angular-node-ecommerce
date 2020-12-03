@@ -1,0 +1,35 @@
+<mat-card class="login-card">
+  <mat-card-header>
+    <mat-card-title>Login</mat-card-title>
+    <mat-card-subtitle>Login To Explore</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input matInput
+        name = "email"
+        ([ngModle])="email"
+        type="email"
+        required
+        placeholder="Your Email Address"
+        />
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Password</mat-label>
+        <input matInput
+        name = "password"
+        ([ngModle])="password"
+        type="password"
+        required
+        placeholder="Your Password"
+        />
+      </mat-form-field>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" style="margin-bottom:20px" (click)="login()">Primary</button>
+      </mat-card-actions>
+    </form>
+  </mat-card-content>
+
+</mat-card>
+
