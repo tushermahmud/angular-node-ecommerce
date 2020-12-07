@@ -8,17 +8,16 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  email: string = "tusher@gmail.com";
-  password: string = "qwerty";
+  email: string;
+  password: string;
   constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit(): void {
   }
   login(): void{
-    this.authService.login(this.email, this.password).subscribe((s) => this.router.navigate(['/']));
-    // this.authService
-    // .login(email,password)
-    // .subscribe((s) => this.router.navigate(['']));
+    this.authService
+    .login(this.email, this.password)
+    .subscribe((s) => this.router.navigate(['']));
   }
 
 }

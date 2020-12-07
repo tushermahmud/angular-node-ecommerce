@@ -1,1 +1,81 @@
-<p>register works!</p>
+<mat-card class="login-card">
+  <mat-card-header>
+    <mat-card-title>Register</mat-card-title>
+    <mat-card-subtitle>Login To Explore</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="userGroup" class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Full Name</mat-label>
+        <input
+          matInput
+          type="fullname"
+          formControlName="fullname"
+          name="fullname"
+          required
+        />
+      </mat-form-field>
+      <mat-error *ngIf="userGroup.controls.fullname.errors?.required&&userGroup.controls.fullname.touched">
+        This Full Name field is Required!
+      </mat-error>
+      <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          type="email"
+          formControlName="email"
+          name="email"
+          required
+        />
+      </mat-form-field>
+      <mat-error *ngIf="userGroup.controls.email.errors?.email&&userGroup.controls.email.invalid">
+        This Email is Invalid!
+      </mat-error>
+      <mat-error *ngIf="userGroup.controls.email.errors?.required&&userGroup.controls.email.touched">
+        This Email field is Required!
+      </mat-error>
+      <mat-form-field class="example-full-width">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          type="password"
+          formControlName="password"
+          name="password"
+          required
+        />
+      </mat-form-field>
+      <mat-error *ngIf="userGroup.controls.password.errors?.required&&userGroup.controls.password.touched">
+        This Password field is Required!
+      </mat-error>
+      <mat-form-field class="example-full-width">
+        <mat-label>Confirm Password</mat-label>
+        <input
+          matInput
+          type="password"
+          formControlName="confirmPassword"
+          name="confirmPassword"
+          required
+        />
+      </mat-form-field>
+      <mat-error *ngIf="userGroup.controls.confirmPassword.errors?.required&&userGroup.controls.confirmPassword.touched">
+        This Confirm Password field is Required!
+      </mat-error>
+      <mat-error *ngIf="userGroup.controls.confirmPassword.errors?.invalid && userGroup.controls.confirmPassword.value.length">
+        This Password did not match!
+      </mat-error>
+    </form>
+    <mat-card-actions>
+      <button
+        mat-raised-button
+        color="primary"
+        style="margin-bottom: 20px"
+        (click)="register()"
+        [disabled]= "userGroup.invalid"
+      >
+        Register
+      </button>
+    </mat-card-actions>
+    Already Have an Account? <a [routerLink]="['/login']">Login Here</a>
+  </mat-card-content>
+</mat-card>
+

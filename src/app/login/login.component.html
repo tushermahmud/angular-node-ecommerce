@@ -7,29 +7,36 @@
     <form class="example-form">
       <mat-form-field class="example-full-width">
         <mat-label>Email</mat-label>
-        <input matInput
-        name = "email"
-        ([ngModle])="email"
-        type="email"
-        required
-        placeholder="Your Email Address"
+        <input
+          matInput
+          type="email"
+          [(ngModel)]="email"
+          name="email"
+          required
         />
       </mat-form-field>
       <mat-form-field class="example-full-width">
         <mat-label>Password</mat-label>
-        <input matInput
-        name = "password"
-        ([ngModle])="password"
-        type="password"
-        required
-        placeholder="Your Password"
+        <input
+          matInput
+          type="password"
+          [(ngModel)]="password"
+          name="password"
+          required
         />
       </mat-form-field>
-      <mat-card-actions>
-        <button mat-raised-button color="primary" style="margin-bottom:20px" (click)="login()">Primary</button>
-      </mat-card-actions>
     </form>
+    {{ email }}{{ password }}
+    <mat-card-actions>
+      <button
+        mat-raised-button
+        color="primary"
+        style="margin-bottom: 20px"
+        (click)="login()"
+      >
+        Login
+      </button>
+    </mat-card-actions>
+    Already Have an Account? <a [routerLink]="['/register']">Register Here</a>
   </mat-card-content>
-
 </mat-card>
-
